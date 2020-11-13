@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public float movementSpeed = 0.25f;
-    public float rotationSpeed = 3;
+    public float rotationSpeed = 10;
     private Rigidbody rb;
     private float movementX;
     private float movementY;
@@ -14,11 +14,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-    }
-
-    void Update()
-    {
-        transform.Rotate(new Vector3(0.0f, Input.GetAxis("Mouse X"), 0.0f) * rotationSpeed);
     }
 
     void OnMove(InputValue movementValue)
@@ -31,9 +26,9 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
-        transform.Translate(movement * movementSpeed);
-        //Vector3 rotation = new Vector3(0.0f, movementX, 0.0f);
-        //transform.Rotate(rotation * rotationSpeed);
-        //rb.AddForce(movement * movementSpeed);
+        movement = transform.TransformDirection(movement);
+        rb.MovePosition(transform.position + movement * movementSpeed);
+        Quaternion rotation = Quaternion.Euler(new Vector3(0.0f, Input.GetAxis("Mouse X"), 0.0f) * rotationSpeed);
+        rb.MoveRotation(rb.rotation * rotation);
     }
 }
