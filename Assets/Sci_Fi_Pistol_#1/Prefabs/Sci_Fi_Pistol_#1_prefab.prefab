@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4288702197384964}
   - component: {fileID: 33566535516573980}
   - component: {fileID: 23887200465028318}
+  - component: {fileID: 1528278334}
+  - component: {fileID: 1528278331}
   m_Layer: 0
   m_Name: Sci_fi_Pistol1
   m_TagString: Untagged
@@ -82,6 +84,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1528278334
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220301485174268}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.0532, y: 14.258, z: 21.6336}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1528278331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220301485174268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3ecfea7323dd974992214dcec13fda9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maskPrefab: {fileID: 410912177986387052, guid: b9a63ec09d6d2ea48ab2dbb550e355a9, type: 3}
+  maskSpawn: {fileID: 1986338307242794431}
+  maskSpeed: 100
+  lifeTime: 3
 --- !u!1 &1420827811599730
 GameObject:
   m_ObjectHideFlags: 0
