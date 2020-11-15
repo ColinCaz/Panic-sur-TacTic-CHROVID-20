@@ -32,7 +32,6 @@ public class GunBehaviour : MonoBehaviour
         Physics.IgnoreCollision(mask.GetComponent<Collider>(), maskSpawn.parent.GetComponent<Collider>());
 
         mask.transform.position = maskSpawn.position;
-        print("Spawn: " + maskSpawn.position);
 
         Vector3 rotation = mask.transform.rotation.eulerAngles;
         mask.transform.rotation = Quaternion.Euler(rotation.x, transform.eulerAngles.y, rotation.z);
