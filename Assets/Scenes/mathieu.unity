@@ -424,17 +424,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7918532558314737766, guid: 5cde37888d9354b40b5f888263294111, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.049999993
-      objectReference: {fileID: 0}
-    - target: {fileID: 7918532558314737766, guid: 5cde37888d9354b40b5f888263294111, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.049999993
+    - target: {fileID: 7920560594357680729, guid: 5cde37888d9354b40b5f888263294111, type: 3}
+      propertyPath: lifeTime
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7920560594357680729, guid: 5cde37888d9354b40b5f888263294111, type: 3}
-      propertyPath: maskSpeed
-      value: 50
+      propertyPath: timeBetweenFire
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7921601115659451038, guid: 5cde37888d9354b40b5f888263294111, type: 3}
       propertyPath: m_Name

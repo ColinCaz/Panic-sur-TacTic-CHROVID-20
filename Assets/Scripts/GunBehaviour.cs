@@ -10,6 +10,9 @@ public class GunBehaviour : MonoBehaviour
     public float maskSpeed = 30;
     public float lifeTime = 3;
 
+    public float timeBetweenFire = 0.5f;
+    private float timePassed = 0.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,14 +22,19 @@ public class GunBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        timePassed += Time.deltaTime;
+
+        if (Input.GetButton("Fire1") && timePassed > timeBetweenFire)
         {
             Fire();
+            timePassed = 0.0f;
         }
     }
 
     private void Fire()
     {
+        GetComponent<AudioSource>().Play();
+
         GameObject mask = Instantiate(maskPrefab);
 
         Physics.IgnoreCollision(mask.GetComponent<Collider>(), maskSpawn.parent.GetComponent<Collider>());
