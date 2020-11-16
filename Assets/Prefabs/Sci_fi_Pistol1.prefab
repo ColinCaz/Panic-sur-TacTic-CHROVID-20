@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 7908222734018499516}
   - component: {fileID: 7920560594357680732}
   - component: {fileID: 7920560594357680729}
-  - component: {fileID: 2104428446}
+  - component: {fileID: 351146764}
   m_Layer: 0
   m_Name: Sci_fi_Pistol1
   m_TagString: Untagged
@@ -145,7 +145,12 @@ MonoBehaviour:
   maskSpeed: 50
   lifeTime: 3
   timeBetweenFire: 0.5
---- !u!82 &2104428446
+  maxLoad: 10
+  load: 10
+  reloadTime: 2
+  shotSound: {fileID: 8300000, guid: b4480a4ec21515641971816cbc30c10a, type: 3}
+  reloadSound: {fileID: 8300000, guid: ae5f82d069d918e4ea16bcdc4a6d1cb9, type: 3}
+--- !u!82 &351146764
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,8 +160,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f91cd3efad6bc434fb47a43f45b6b1e6, type: 3}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
