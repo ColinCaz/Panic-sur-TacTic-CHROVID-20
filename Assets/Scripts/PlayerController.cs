@@ -14,6 +14,12 @@ public class PlayerController : MonoBehaviour
     public int maxXRotation = 15;
     public bool invertVertical = false;
 
+    public GameObject Minimap;
+    public GameObject Map;
+
+    public GameObject minimapCamera;
+    public GameObject mapCamera;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -38,6 +44,24 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown("m"))
+        {
+            Minimap.SetActive(false);
+            Map.SetActive(true);
+        }
+        if (Input.GetKeyUp("m"))
+        {
+            Map.SetActive(false);
+            Minimap.SetActive(true);
+        }
+
+        mapCamera.transform.position = new Vector3(transform.position.x, 10, transform.position.z);
+        minimapCamera.transform.position = new Vector3(transform.position.x, 10, transform.position.z);
+        Quaternion rotation = Quaternion.identity;
+        rotation.eulerAngles = new Vector3(90, transform.rotation.eulerAngles.y, 0);
+        mapCamera.transform.rotation = rotation;
+        minimapCamera.transform.rotation = rotation;
+
         Vector3 eulerRotation = transform.rotation.eulerAngles;
         if (eulerRotation.x > 180)
         {

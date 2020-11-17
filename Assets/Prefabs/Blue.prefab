@@ -3,7 +3,7 @@
 --- !u!1 &8160518664460521072
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 2900436522944871725, guid: 1f9f68b15beb5d94094b0ebbe9079b2c, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8160518664460521076}
   - component: {fileID: 8160518664460521079}
   - component: {fileID: 8160518664460521078}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22,7 +22,7 @@ GameObject:
 --- !u!4 &8160518664460521073
 Transform:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 2900436522944871726, guid: 1f9f68b15beb5d94094b0ebbe9079b2c, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8160518664460521072}
@@ -36,7 +36,7 @@ Transform:
 --- !u!33 &8160518664460521076
 MeshFilter:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 2900436522944871729, guid: 1f9f68b15beb5d94094b0ebbe9079b2c, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8160518664460521072}
@@ -44,7 +44,7 @@ MeshFilter:
 --- !u!23 &8160518664460521079
 MeshRenderer:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 2900436522944871728, guid: 1f9f68b15beb5d94094b0ebbe9079b2c, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8160518664460521072}
@@ -85,7 +85,7 @@ MeshRenderer:
 --- !u!136 &8160518664460521078
 CapsuleCollider:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 2900436522944871727, guid: 1f9f68b15beb5d94094b0ebbe9079b2c, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8160518664460521072}
@@ -99,15 +99,15 @@ CapsuleCollider:
 --- !u!1 &8160518665200907515
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 2900436522899889342, guid: 1f9f68b15beb5d94094b0ebbe9079b2c, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8160518665200907512}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Blue
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,7 +115,7 @@ GameObject:
 --- !u!4 &8160518665200907512
 Transform:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 2900436522899889343, guid: 1f9f68b15beb5d94094b0ebbe9079b2c, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8160518665200907515}
