@@ -5,47 +5,56 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
-    public void ChargerScene(string Scene)
+    public AudioClip backButtonSound;
+    public AudioSource source;
+
+    public void ChargerScene(string scene)
     {
-        SceneManager.LoadScene(Scene);
+        SceneManager.LoadScene(scene);
         Time.timeScale = 1;
     }
 
-    public void AjouterScene(string Scene)
+    public void AjouterScene(string scene)
     {
-        SceneManager.LoadScene(Scene, LoadSceneMode.Additive);
-        if (Scene == "Pause")
-        {
-            Time.timeScale = 0;
-        }
+        SceneManager.LoadScene(scene, LoadSceneMode.Additive);
     }
 
-    public void FermerScene(string Scene)
+    public void FermerScene(string scene)
     {
-        SceneManager.UnloadSceneAsync(Scene);
-        if (Scene == "Pause")
-        {
-            Time.timeScale = 1;
-        }
+        StartCoroutine(WaitForReturn(scene));
     }
 
+    public IEnumerator WaitForReturn(string scene)
+    {
+        float time = Time.timeScale;
+        Time.timeScale = 0.1f;
+        yield return new WaitForSeconds(0.075f);
+        SceneManager.UnloadSceneAsync(scene);
+        Time.timeScale = time;
+    }
+    
     void Update()
     {
         if (Input.GetKeyDown("escape"))
         {
             if (SceneManager.GetSceneByName("Skins").isLoaded)
             {
-                SceneManager.UnloadSceneAsync("Skins");
+                SoundAndReturn("Skins");
             }
             if (SceneManager.GetSceneByName("Options").isLoaded)
             {
-                SceneManager.UnloadSceneAsync("Options");
-            }
-            else if (SceneManager.GetSceneByName("Pause").isLoaded)
-            {
-                SceneManager.UnloadSceneAsync("Pause");
-                Time.timeScale = 1;
+                SoundAndReturn("Options");
             }
         }
+    }
+
+    void SoundAndReturn(string scene)
+    {
+        float time = Time.timeScale;
+        Time.timeScale = 0.1f;
+        source.volume = (float)PlayerPrefs.GetInt("VolumeSons") / 100;
+        source.PlayOneShot(backButtonSound);
+        SceneManager.UnloadSceneAsync(scene);
+        Time.timeScale = time;
     }
 }

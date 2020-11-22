@@ -7,6 +7,15 @@ public class Skins : MonoBehaviour
 {
     public void Retour()
     {
+        StartCoroutine(SoundAndReturn());
+    }
+
+    IEnumerator SoundAndReturn()
+    {
+        float time = Time.timeScale;
+        Time.timeScale = 0.1f;
+        yield return new WaitForSeconds(0.075f);
         SceneManager.UnloadSceneAsync("Skins");
+        Time.timeScale = time;
     }
 }

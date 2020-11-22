@@ -320,12 +320,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 0.25
-  rotationSpeed: 5
+  jumpHeight: 50000
   minXRotation: -15
   maxXRotation: 15
-  invertVertical: 0
-  Minimap: {fileID: 0}
-  Map: {fileID: 0}
   minimapCamera: {fileID: 0}
   mapCamera: {fileID: 0}
 --- !u!114 &1711441792888349317
@@ -366,7 +363,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1711441792888349339}
   serializedVersion: 2
-  m_Mass: 10000
+  m_Mass: 100
   m_Drag: 1
   m_AngularDrag: 0.5
   m_UseGravity: 1

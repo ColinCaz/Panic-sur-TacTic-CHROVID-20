@@ -18,6 +18,9 @@ public class MenuPrincipal : MonoBehaviour
 
     public Text helpText;
 
+    public AudioClip backButtonSound;
+    public AudioSource source;
+
     void Start()
     {
         nombreDeFragmentDeVirus.text = PlayerPrefs.GetInt("FragVirus", 0).ToString();
@@ -111,6 +114,8 @@ public class MenuPrincipal : MonoBehaviour
     {
         if (Input.GetKeyDown("escape") && help.activeInHierarchy)
         {
+            source.volume = (float)PlayerPrefs.GetInt("VolumeSons") / 100;
+            source.PlayOneShot(backButtonSound);
             FinHelp();
         }
     }
