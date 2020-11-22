@@ -10,13 +10,26 @@ public class Contagion : MonoBehaviour
     //      2 -> éternuement à intervalle régulier
     //      3 -> enlève les masques des autres + fuit devant le joueur
     public int stade = 0;
+
+    // Taille de la zone de contamination en sphere autour du tactic
     public float radiusArea = 5.0f;
-    public float timeBetweenCough = 5.0f;
+
+    // Temps entre 2 éternuements
+    public float timeBetweenCough = 2.0f;
     private float timePassed = 0.0f;
+
+    private ParticleSystem coughParticles;
 
     // Start is called before the first frame update
     void Start()
     {
+        coughParticles = GetComponent<ParticleSystem>();
+
+        var shape = coughParticles.shape;
+        shape.radius = radiusArea;
+        var emission = coughParticles.emission;
+        emission.enabled = true;
+        emission.SetBurst(0, new ParticleSystem.Burst(0.0f, radiusArea * 10));
     }
 
     // Update is called once per frame
@@ -35,13 +48,16 @@ public class Contagion : MonoBehaviour
 
     void Cough()
     {
-        Collider[] insideColliders = Physics.OverlapSphere(transform.position, radiusArea);
+        coughParticles.Play();
 
+        Collider[] insideColliders = Physics.OverlapSphere(transform.position, radiusArea);
         foreach (Collider col in insideColliders)
         {
-            Contagion script = col.transform.parent.gameObject.GetComponent<Contagion>();
-            if (script)
+            Contagion script = col.transform.gameObject.GetComponent<Contagion>();
+            if (script && script != this)
+            {
                 script.GetInfected();
+            }
         }
     }
 
@@ -51,13 +67,3 @@ public class Contagion : MonoBehaviour
             stade++;
     }
 }
-/*
- Public GameObject objectToAccess;
-// drag the object you're calling a method on into the inspector, or alternatively use GameObject.Find to get a handle on it
- 
-ScriptName scriptToAccess = objectToAccess.GetComponent<ScriptName>();
-// get the script on the object (make sure the script is a public class)      
- 
-scriptToAccess.YourMethodName(your parameters etc);
-// calls the method in the script on the other object.
-*/
