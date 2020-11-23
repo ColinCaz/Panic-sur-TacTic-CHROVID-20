@@ -18,9 +18,17 @@ public class HUDController : MonoBehaviour
     public AudioClip mapSound;
     public AudioSource source;
 
+    public Slider contamination;
+    public Text taux;
+
     private bool use1 = true;
     private bool use2 = false;
     private bool use3 = false;
+
+    public void Contamination()
+    {
+        taux.text = contamination.value.ToString() + "%";
+    }
 
     void Update()
     {
