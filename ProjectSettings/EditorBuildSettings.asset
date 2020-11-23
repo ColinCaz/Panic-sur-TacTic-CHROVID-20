@@ -4,15 +4,34 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: [{enabled: 1, path: Assets/3rdPerson+Fly/Scenes/3rdPerson+Fly.unity, guid: edce6a3cd6b78e7459bd2864b9295f8c},
-    {enabled: 1, path: Assets/Scenes/Accueil.unity, guid: 45f4910a47fdb914c9ec0d60b1ca8473},
-    {enabled: 1, path: Assets/Scenes/MenuPrincipal.unity, guid: 857e03d7e3637e547a732de0c89d442d},
-    {enabled: 1, path: Assets/Scenes/Tutoriel.unity, guid: d2ca5555a28ed2f439f8ee8636276095},
-    {enabled: 1, path: Assets/Scenes/Solo.unity, guid: 955fd3e958d54e6459e71a15e74eb937},
-    {enabled: 1, path: Assets/Scenes/Coop.unity, guid: e5dd84ea55158da4fa12fa18a4f9d6e4},
-    {enabled: 1, path: Assets/Scenes/Skins.unity, guid: 1ec5187af084d3e44b61abd27f706349},
-    {enabled: 1, path: Assets/Scenes/Options.unity, guid: 34f944deece06294db009b869f28f100},
-    {enabled: 0, path: '', guid: 00000000000000000000000000000000}]
+  m_Scenes:
+  - enabled: 1
+    path: Assets/3rdPerson+Fly/Scenes/3rdPerson+Fly.unity
+    guid: edce6a3cd6b78e7459bd2864b9295f8c
+  - enabled: 1
+    path: Assets/Scenes/Accueil.unity
+    guid: 45f4910a47fdb914c9ec0d60b1ca8473
+  - enabled: 1
+    path: Assets/Scenes/MenuPrincipal.unity
+    guid: 857e03d7e3637e547a732de0c89d442d
+  - enabled: 1
+    path: Assets/Scenes/Tutoriel.unity
+    guid: d2ca5555a28ed2f439f8ee8636276095
+  - enabled: 1
+    path: Assets/Scenes/Solo.unity
+    guid: 955fd3e958d54e6459e71a15e74eb937
+  - enabled: 1
+    path: Assets/Scenes/Coop.unity
+    guid: e5dd84ea55158da4fa12fa18a4f9d6e4
+  - enabled: 1
+    path: Assets/Scenes/Skins.unity
+    guid: 1ec5187af084d3e44b61abd27f706349
+  - enabled: 1
+    path: Assets/Scenes/Options.unity
+    guid: 34f944deece06294db009b869f28f100
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: de0604ef366612547ab58367b9d3d9c0,
       type: 2}
