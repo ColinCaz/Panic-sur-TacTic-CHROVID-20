@@ -7,7 +7,11 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public float movementSpeed = 0.25f;
+<<<<<<< HEAD
     public float jumpHeight = 50000;
+=======
+    public float rotationSpeed = 10;
+>>>>>>> maxalaar
     private Rigidbody rb;
     private float movementX;
     private float movementY;
@@ -34,6 +38,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
         movement = transform.TransformDirection(movement);
+<<<<<<< HEAD
         rb.MovePosition(transform.position + movement * movementSpeed * Time.timeScale);
         /*
         Quaternion rotation = Quaternion.Euler(new Vector3(PlayerPrefs.GetInt("Inversion", -1) * Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0.0f) * rotationSpeed * Time.timeScale);
@@ -80,5 +85,11 @@ public class PlayerController : MonoBehaviour
                 transform.Rotate(new Vector3(0, 0, -eulerRotation.z));
             }
         }
+=======
+        rb.MovePosition(transform.position + movement * movementSpeed);
+        Quaternion rotation = Quaternion.Euler(new Vector3(0.0f, Input.GetAxis("Mouse X"), 0.0f) * rotationSpeed);
+        rotation *= rb.rotation;
+        rb.MoveRotation(rotation);
+>>>>>>> maxalaar
     }
 }

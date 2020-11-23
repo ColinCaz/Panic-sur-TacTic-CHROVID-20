@@ -4,7 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: [{enabled: 1, path: Assets/Scenes/Accueil.unity, guid: 45f4910a47fdb914c9ec0d60b1ca8473},
+  m_Scenes: [{enabled: 1, path: Assets/3rdPerson+Fly/Scenes/3rdPerson+Fly.unity, guid: edce6a3cd6b78e7459bd2864b9295f8c},
+    {enabled: 1, path: Assets/Scenes/Accueil.unity, guid: 45f4910a47fdb914c9ec0d60b1ca8473},
     {enabled: 1, path: Assets/Scenes/MenuPrincipal.unity, guid: 857e03d7e3637e547a732de0c89d442d},
     {enabled: 1, path: Assets/Scenes/Tutoriel.unity, guid: d2ca5555a28ed2f439f8ee8636276095},
     {enabled: 1, path: Assets/Scenes/Solo.unity, guid: 955fd3e958d54e6459e71a15e74eb937},
