@@ -119,7 +119,7 @@ public class HUDController : MonoBehaviour
             borderTourelle.SetActive(true);
             backgroundTourelle.color = new Color(1, 1, 1, 1);
         }
-        Debug.Log(Input.mouseScrollDelta.y);
+
         if ((Input.GetKeyDown("m") || Input.GetKeyDown("tab")) && Time.timeScale != 0)
         {
             source.volume = (float)PlayerPrefs.GetInt("VolumeSons") / 100;
