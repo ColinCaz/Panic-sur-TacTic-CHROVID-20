@@ -18,9 +18,52 @@ public class HUDController : MonoBehaviour
     public AudioClip mapSound;
     public AudioSource source;
 
+    private bool use1 = true;
+    private bool use2 = false;
+    private bool use3 = false;
+
     void Update()
     {
-        if (Input.GetKeyDown("1") || Input.GetKeyDown("[1]"))
+        if (use1)
+        {
+            if (Input.mouseScrollDelta.y < 0)
+            {
+                use1 = false;
+                use2 = true;
+            }
+            else if (Input.mouseScrollDelta.y > 0)
+            {
+                use1 = false;
+                use3 = true;
+            }
+        }
+        else if (use2)
+        {
+            if (Input.mouseScrollDelta.y < 0)
+            {
+                use2 = false;
+                use3 = true;
+            }
+            else if (Input.mouseScrollDelta.y > 0)
+            {
+                use2 = false;
+                use1 = true;
+            }
+        }
+        else if (use3)
+        {
+            if (Input.mouseScrollDelta.y < 0)
+            {
+                use3 = false;
+                use1 = true;
+            }
+            else if (Input.mouseScrollDelta.y > 0)
+            {
+                use3 = false;
+                use2 = true;
+            }
+        }
+        if (Input.GetKeyDown("1") || Input.GetKeyDown("[1]") || use1)
         {
             borderGrenade.SetActive(false);
             backgroundGrenade.color = new Color(1,1,1,0.5f);
@@ -29,7 +72,7 @@ public class HUDController : MonoBehaviour
             borderGun.SetActive(true);
             backgroundGun.color = new Color(1, 1, 1, 1);
         }
-        if (Input.GetKeyDown("2") || Input.GetKeyDown("[2]"))
+        if (Input.GetKeyDown("2") || Input.GetKeyDown("[2]") || use2)
         {
             borderGun.SetActive(false);
             backgroundGun.color = new Color(1, 1, 1, 0.5f);
@@ -38,7 +81,7 @@ public class HUDController : MonoBehaviour
             borderGrenade.SetActive(true);
             backgroundGrenade.color = new Color(1, 1, 1, 1);
         }
-        if (Input.GetKeyDown("3") || Input.GetKeyDown("[3]"))
+        if (Input.GetKeyDown("3") || Input.GetKeyDown("[3]") || use3)
         {
             borderGun.SetActive(false);
             backgroundGun.color = new Color(1, 1, 1, 0.5f);
@@ -47,6 +90,7 @@ public class HUDController : MonoBehaviour
             borderTourelle.SetActive(true);
             backgroundTourelle.color = new Color(1, 1, 1, 1);
         }
+        Debug.Log(Input.mouseScrollDelta.y);
         if ((Input.GetKeyDown("m") || Input.GetKeyDown("tab")) && Time.timeScale != 0)
         {
             source.volume = (float)PlayerPrefs.GetInt("VolumeSons") / 100;
