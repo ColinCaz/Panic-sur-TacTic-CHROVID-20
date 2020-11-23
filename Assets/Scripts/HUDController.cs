@@ -71,8 +71,27 @@ public class HUDController : MonoBehaviour
                 use2 = true;
             }
         }
+        if (Input.GetKeyDown("1") || Input.GetKeyDown("[1]"))
+        {
+            use1 = true;
+            use2 = false;
+            use3 = false;
+        }
+        else if (Input.GetKeyDown("2") || Input.GetKeyDown("[2]"))
+        {
+            use1 = false;
+            use2 = true;
+            use3 = false;
+        }
+        else if (Input.GetKeyDown("3") || Input.GetKeyDown("[3]"))
+        {
+            use1 = false;
+            use2 = false;
+            use3 = true;
+        }
         if (Input.GetKeyDown("1") || Input.GetKeyDown("[1]") || use1)
         {
+            use1 = true;
             borderGrenade.SetActive(false);
             backgroundGrenade.color = new Color(1,1,1,0.5f);
             borderTourelle.SetActive(false);
@@ -80,8 +99,9 @@ public class HUDController : MonoBehaviour
             borderGun.SetActive(true);
             backgroundGun.color = new Color(1, 1, 1, 1);
         }
-        if (Input.GetKeyDown("2") || Input.GetKeyDown("[2]") || use2)
+        else if (Input.GetKeyDown("2") || Input.GetKeyDown("[2]") || use2)
         {
+            use2 = true;
             borderGun.SetActive(false);
             backgroundGun.color = new Color(1, 1, 1, 0.5f);
             borderTourelle.SetActive(false);
@@ -89,8 +109,9 @@ public class HUDController : MonoBehaviour
             borderGrenade.SetActive(true);
             backgroundGrenade.color = new Color(1, 1, 1, 1);
         }
-        if (Input.GetKeyDown("3") || Input.GetKeyDown("[3]") || use3)
+        else if (Input.GetKeyDown("3") || Input.GetKeyDown("[3]") || use3)
         {
+            use3 = true;
             borderGun.SetActive(false);
             backgroundGun.color = new Color(1, 1, 1, 0.5f);
             borderGrenade.SetActive(false);
