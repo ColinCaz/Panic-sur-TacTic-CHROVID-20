@@ -12,6 +12,8 @@ public class HUDController : MonoBehaviour
     public Image backgroundGun;
     public GameObject borderGrenade;
     public Image backgroundGrenade;
+    public GameObject borderTourelle;
+    public Image backgroundTourelle;
 
     public AudioClip mapSound;
     public AudioSource source;
@@ -22,6 +24,8 @@ public class HUDController : MonoBehaviour
         {
             borderGrenade.SetActive(false);
             backgroundGrenade.color = new Color(1,1,1,0.5f);
+            borderTourelle.SetActive(false);
+            backgroundTourelle.color = new Color(1, 1, 1, 0.5f);
             borderGun.SetActive(true);
             backgroundGun.color = new Color(1, 1, 1, 1);
         }
@@ -29,8 +33,19 @@ public class HUDController : MonoBehaviour
         {
             borderGun.SetActive(false);
             backgroundGun.color = new Color(1, 1, 1, 0.5f);
+            borderTourelle.SetActive(false);
+            backgroundTourelle.color = new Color(1, 1, 1, 0.5f);
             borderGrenade.SetActive(true);
             backgroundGrenade.color = new Color(1, 1, 1, 1);
+        }
+        if (Input.GetKeyDown("3") || Input.GetKeyDown("[3]"))
+        {
+            borderGun.SetActive(false);
+            backgroundGun.color = new Color(1, 1, 1, 0.5f);
+            borderGrenade.SetActive(false);
+            backgroundGrenade.color = new Color(1, 1, 1, 0.5f);
+            borderTourelle.SetActive(true);
+            backgroundTourelle.color = new Color(1, 1, 1, 1);
         }
         if ((Input.GetKeyDown("m") || Input.GetKeyDown("tab")) && Time.timeScale != 0)
         {

@@ -34,7 +34,7 @@ public class Pause : MonoBehaviour
             source.PlayOneShot(backButtonSound);
             pause.SetActive(false);
             Time.timeScale = 1;
-            Cursor.visible = true;
+            Cursor.visible = false;
         }
     }
 }

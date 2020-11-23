@@ -9,6 +9,7 @@ public class MenuPrincipal : MonoBehaviour
     public GameObject help;
 
     public GameObject fragVirus;
+    public GameObject tutoriel;
     public GameObject aide;
     public GameObject quitter;
     public GameObject solo;
@@ -31,6 +32,7 @@ public class MenuPrincipal : MonoBehaviour
         help.SetActive(true);
 
         fragVirus.SetActive(true);
+        tutoriel.SetActive(true);
         aide.SetActive(false);
         quitter.SetActive(true);
         solo.SetActive(true);
@@ -48,13 +50,14 @@ public class MenuPrincipal : MonoBehaviour
         if (!aide.activeInHierarchy)
         {
             aide.SetActive(true);
-            quitter.SetActive(false);
-            helpText.text = "Si vous souhaitez quitter le jeu," + System.Environment.NewLine +
-                "appuyez sur ce bouton.";
+            tutoriel.SetActive(false);
+            helpText.text = "Cliquez sur ce bouton pour lancer le tutoriel." + System.Environment.NewLine +
+                "Il vous apprendra tout ce qu'il faut savoir pour bien commencer" + System.Environment.NewLine +
+                "à jouer sur de bonnes bases !";
         }
-        else if (!quitter.activeInHierarchy)
+        else if (!tutoriel.activeInHierarchy)
         {
-            quitter.SetActive(true);
+            tutoriel.SetActive(true);
             fragVirus.SetActive(false);
             helpText.text = "Ce nombre représente les fragments de virus en votre possession." + System.Environment.NewLine +
                 "Les fragments de virus servent uniquement à acheter des skins," + System.Environment.NewLine +
@@ -91,6 +94,13 @@ public class MenuPrincipal : MonoBehaviour
         else if (!options.activeInHierarchy)
         {
             options.SetActive(true);
+            quitter.SetActive(false);
+            helpText.text = "Si vous souhaitez quitter le jeu," + System.Environment.NewLine +
+                "appuyez sur ce bouton.";
+        }
+        else if (!quitter.activeInHierarchy)
+        {
+            quitter.SetActive(true);
             helpText.text = "L'aide est terminée !" + System.Environment.NewLine +
                 "N'hésitez pas à revenir pour vous rafraîchir la mémoire.";
         }

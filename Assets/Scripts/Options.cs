@@ -23,7 +23,14 @@ public class Options : MonoBehaviour
 
     public void Nom()
     {
-        PlayerPrefs.SetString("Nom", nom.text);
+        if (nom.text != "")
+        {
+            PlayerPrefs.SetString("Nom", nom.text);
+        }
+        else
+        {
+            nom.text = PlayerPrefs.GetString("Nom", nom.text);
+        }
     }
 
     public void Sensibilite()
