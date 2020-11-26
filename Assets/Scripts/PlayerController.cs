@@ -35,13 +35,13 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
         movement = transform.TransformDirection(movement);
-        rb.MovePosition(transform.position + movement * movementSpeed * Time.timeScale);
-        /*
+        rb.AddForce(transform.position + movement * movementSpeed * Time.timeScale);
+        
         Quaternion rotation = Quaternion.Euler(new Vector3(PlayerPrefs.GetInt("Inversion", -1) * Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0.0f) * rotationSpeed * Time.timeScale);
         rotation *= rb.rotation;
         rb.MoveRotation(rotation);
-        */
-        transform.Rotate(new Vector3(PlayerPrefs.GetInt("Inversion", -1) * Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0) * PlayerPrefs.GetInt("Sensibilite", 10) * Time.timeScale, Space.Self);
+        
+       // transform.Rotate(new Vector3(PlayerPrefs.GetInt("Inversion", -1) * Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0) * PlayerPrefs.GetInt("Sensibilite", 10) * Time.timeScale, Space.Self);
 
         if ((Input.GetKeyDown("right shift") || Input.GetKeyDown("left shift") || Input.GetKeyDown("space")) && transform.position.y < 0.5f)
         {
@@ -63,22 +63,22 @@ public class PlayerController : MonoBehaviour
         {
             if (eulerRotation.x < 360 + minXRotation)
             {
-                transform.Rotate(new Vector3(-eulerRotation.x + minXRotation, 0, -eulerRotation.z));
+                rb.AddForce(new Vector3(-eulerRotation.x + minXRotation, 0, -eulerRotation.z));
             }
             else
             {
-                transform.Rotate(new Vector3(0, 0, -eulerRotation.z));
+                rb.AddForce(new Vector3(0, 0, -eulerRotation.z));
             }
         }
         else
         {
             if (eulerRotation.x > maxXRotation)
             {
-                transform.Rotate(new Vector3(-eulerRotation.x + maxXRotation, 0, -eulerRotation.z));
+                rb.AddForce(new Vector3(-eulerRotation.x + maxXRotation, 0, -eulerRotation.z));
             }
             else
             {
-                transform.Rotate(new Vector3(0, 0, -eulerRotation.z));
+                rb.AddForce(new Vector3(0, 0, -eulerRotation.z));
             }
         }
     }
