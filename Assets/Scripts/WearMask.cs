@@ -16,6 +16,11 @@ public class WearMask : MonoBehaviour
 
     private bool masked = false;
 
+    public bool IsMasked()
+    {
+        return masked;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.name == "Mask(Clone)")
