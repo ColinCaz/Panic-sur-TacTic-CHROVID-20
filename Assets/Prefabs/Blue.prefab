@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2900436522899889343}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Blue
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 2900436522944871728}
   - component: {fileID: 2900436522944871727}
   - component: {fileID: 3060724171163649014}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Capsule
   m_TagString: PNJ
   m_Icon: {fileID: 0}
