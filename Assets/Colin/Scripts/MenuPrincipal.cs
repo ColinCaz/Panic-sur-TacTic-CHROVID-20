@@ -46,11 +46,11 @@ public class MenuPrincipal : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("TutoFini", 0) == 1)
         {
-            SceneManager.LoadScene("Solo");
+            SceneManager.LoadScene("SoloTest");
         }
         else
         {
-            PlayerPrefs.SetString("NextScene", "Solo");
+            PlayerPrefs.SetString("NextScene", "SoloTest");
             SceneManager.LoadScene("Tutoriel");
         }
     }

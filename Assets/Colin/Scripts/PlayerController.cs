@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class PlayerController2 : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public float movementSpeed = 0.25f;
     public float jumpHeight = 50000;
@@ -48,20 +48,25 @@ public class PlayerController2 : MonoBehaviour
     {
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
         movement = transform.TransformDirection(movement);
-
+        //rb.MovePosition(transform.position + movement * movementSpeed * Time.timeScale);
         Vector3 targetPosition = transform.position + movement * movementSpeed * Time.timeScale;
         RaycastHit raycastHit;
-           Physics.Raycast(transform.position, movement, out raycastHit, movementSpeed * Time.timeScale);
-        if(raycastHit.collider == null)
+        Physics.Raycast(transform.position, movement, out raycastHit, movementSpeed * Time.timeScale);
+        if (raycastHit.collider == null)
+        {
+            rb.MovePosition(targetPosition);
+        }
+        else if (raycastHit.collider.isTrigger)
         {
             rb.MovePosition(targetPosition);
         }
 
+        /*
         Quaternion rotation = Quaternion.Euler(new Vector3(PlayerPrefs.GetInt("Inversion", -1) * Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0.0f) * rotationSpeed * Time.timeScale);
         rotation *= rb.rotation;
         rb.MoveRotation(rotation);
-        
-        //transform.Rotate(new Vector3(PlayerPrefs.GetInt("Inversion", -1) * Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0) * PlayerPrefs.GetInt("Sensibilite", 10) * Time.timeScale, Space.Self);
+        */
+        transform.Rotate(new Vector3(PlayerPrefs.GetInt("Inversion", -1) * Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0) * PlayerPrefs.GetInt("Sensibilite", 10) * Time.timeScale, Space.Self);
 
         if ((Input.GetKeyDown("right shift") || Input.GetKeyDown("left shift") || Input.GetKeyDown("space")) && transform.position.y < 0.5f)
         {

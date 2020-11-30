@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class HUDController : MonoBehaviour
+public class HUDController2 : MonoBehaviour
 {
     public GameObject Minimap;
     public GameObject Map;

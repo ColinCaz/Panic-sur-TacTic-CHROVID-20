@@ -35,6 +35,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scene Samy.unity
     guid: 10c90918f1f739b48ad2a74fbeeb94c1
+  - enabled: 1
+    path: Assets/Colin/Scenes/SoloTest.unity
+    guid: 8385c573444e6c9469b5bac3874e2b5b
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: de0604ef366612547ab58367b9d3d9c0,
       type: 2}

@@ -276,7 +276,18 @@ public class Tutoriel : MonoBehaviour
             movement = transform.TransformDirection(movement);
             //transform.position += movement * movementSpeed * Time.timeScale;
             //rb.MovePosition(transform.position + movement * movementSpeed * Time.timeScale);
-            rb.position += movement * movementSpeed * Time.timeScale;
+            //rb.position += movement * movementSpeed * Time.timeScale;
+            Vector3 targetPosition = transform.position + movement * movementSpeed * Time.timeScale;
+            RaycastHit raycastHit;
+            Physics.Raycast(transform.position, movement, out raycastHit, movementSpeed * Time.timeScale);
+            if (raycastHit.collider == null)
+            {
+                rb.MovePosition(targetPosition);
+            }
+            else if (raycastHit.collider.isTrigger)
+            {
+                rb.MovePosition(targetPosition);
+            }
             /*
             Quaternion rotation = Quaternion.Euler(new Vector3(PlayerPrefs.GetInt("Inversion", -1) * Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0.0f) * rotationSpeed * Time.timeScale);
             rotation *= rb.rotation;
