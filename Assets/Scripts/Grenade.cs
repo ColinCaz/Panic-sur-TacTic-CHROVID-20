@@ -40,7 +40,7 @@ public class Grenade : MonoBehaviour
                 foreach (GameObject item in gameObjects)
                 {
                     Renderer rend = item.GetComponent<Renderer>();
-                    rend.material.color = Color.black;
+                    rend.material.SetColor("_Color",Color.red);
                 }
              
             }
