@@ -37,10 +37,6 @@ public class SceneController : MonoBehaviour
     {
         if (Input.GetKeyDown("escape"))
         {
-            if (SceneManager.GetSceneByName("Skins").isLoaded)
-            {
-                SoundAndReturn("Skins");
-            }
             if (SceneManager.GetSceneByName("Options").isLoaded)
             {
                 SoundAndReturn("Options");

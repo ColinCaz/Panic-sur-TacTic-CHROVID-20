@@ -45,7 +45,6 @@ public class WearMask : MonoBehaviour
     {
         masked = false;
         yield return new WaitForSeconds(time2live);
-        Debug.Log(transform.Find("Capsule").GetComponent<MeshRenderer>().material.name);
         if (transform.Find("Capsule").GetComponent<MeshRenderer>().material.name == "Blue masked Material (Instance)")
         {
             transform.Find("Capsule").GetComponent<MeshRenderer>().material = blue;

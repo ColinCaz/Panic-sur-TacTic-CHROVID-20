@@ -45,7 +45,7 @@ public class GunBehaviour : MonoBehaviour
         }
         else
         {
-            if (Input.GetButton("Fire1") && timePassed > timeBetweenFire && load > 0)
+            if (Input.GetButton("Fire1") && timePassed > timeBetweenFire && load > 0 && Time.timeScale!=0)
             {
                 Fire();
                 timePassed = 0.0f;
