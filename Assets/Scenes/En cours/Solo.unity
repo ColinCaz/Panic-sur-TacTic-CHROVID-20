@@ -2892,6 +2892,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Minimap: {fileID: 563480825}
   Map: {fileID: 1370785851}
+  gun: {fileID: 0}
+  grenade: {fileID: 0}
+  tourelle: {fileID: 0}
   borderGun: {fileID: 1528889780}
   backgroundGun: {fileID: 1274001298}
   munGun: {fileID: 391633199}
@@ -6359,6 +6362,54 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0aeeeebfa0f204489b957e7e28b20c4, type: 3}
+--- !u!1 &1711441793672667701 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1711441792888349339, guid: b0aeeeebfa0f204489b957e7e28b20c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1711441793672667700}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1711441793672667702 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 378559468595428475, guid: b0aeeeebfa0f204489b957e7e28b20c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1711441793672667700}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1711441793672667703 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1711441793358706181, guid: b0aeeeebfa0f204489b957e7e28b20c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1711441793672667700}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1711441793672667704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711441793672667701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32f55e9e4c88666449bcd7221d7206fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material1: {fileID: 2100000, guid: 2a763312fc049004187affac0731ca97, type: 2}
+  material2: {fileID: 2100000, guid: da53ae7b5b193344cb23f230a5a44273, type: 2}
+  material3: {fileID: 2100000, guid: d780bf48044ebc443a83e90e8235bb33, type: 2}
+  material4: {fileID: 2100000, guid: 30613b661bf1c5c4db3522500cc0be3a, type: 2}
+  material5: {fileID: 2100000, guid: 61b4a77261995b3419f988a6e02b6607, type: 2}
+  material6: {fileID: 2100000, guid: ae4460d6971786c4c85726bd0bbd607a, type: 2}
+  material7: {fileID: 2100000, guid: 8dbf08d3c835ae346845d61d17c14d25, type: 2}
+  materialsColor1: {fileID: 2100000, guid: ce07fb370824b864abe23876469ea031, type: 2}
+  materialsColor2: {fileID: 2100000, guid: f3e610830f0710d4996487ab4317a4d0, type: 2}
+  materialsColor3: {fileID: 2100000, guid: 73055d56f208c254182938c42a02cefa, type: 2}
+  materialsColor4: {fileID: 2100000, guid: f182fc72c8745434cb728149046d08e1, type: 2}
+  materialsColor5: {fileID: 2100000, guid: 6317799b62238b947813e1e481371d43, type: 2}
+  materialsColor6: {fileID: 2100000, guid: 9eec81cf7decbb34ba32eb83dd3178e3, type: 2}
+  materialsColor7: {fileID: 2100000, guid: 0c111cf55d509fa42a2fac70ecbcd854, type: 2}
+  skin: {fileID: 1711441793672667703}
+  epauleExists: 1
+  leftArmInEpaule: 0
+  epaule: {fileID: 1711441793672667702}
 --- !u!1001 &5045002979742633433
 PrefabInstance:
   m_ObjectHideFlags: 0

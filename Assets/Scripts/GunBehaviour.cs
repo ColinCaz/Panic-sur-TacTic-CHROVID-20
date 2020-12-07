@@ -13,8 +13,8 @@ public class GunBehaviour : MonoBehaviour
     public float timeBetweenFire = 0.5f;
     private float timePassed = 0.0f;
 
-    public int maxLoad = 10;
-    public int load = 10;
+    public int maxLoad = 100;
+    public int load = 0;
     public float reloadTime = 2.0f;
     private float reloadTimePassed = 0.0f;
     private bool reloading = false;
@@ -33,6 +33,7 @@ public class GunBehaviour : MonoBehaviour
     void Update()
     {
         timePassed += Time.deltaTime;
+        load = PlayerPrefs.GetInt("MunGun");
 
         if (reloading)
         {
@@ -41,11 +42,12 @@ public class GunBehaviour : MonoBehaviour
             {
                 reloading = false;
                 load = maxLoad;
+                PlayerPrefs.SetInt("MunGun", load);
             }
         }
         else
         {
-            if (Input.GetButton("Fire1") && timePassed > timeBetweenFire && load > 0)
+            if (Input.GetButton("Fire1") && timePassed > timeBetweenFire && load > 0 && Time.timeScale!=0)
             {
                 Fire();
                 timePassed = 0.0f;
@@ -63,6 +65,8 @@ public class GunBehaviour : MonoBehaviour
     private void Fire()
     {
         load--;
+        PlayerPrefs.SetInt("MunGun", load);
+
         audioSource.PlayOneShot(shotSound);
 
         GameObject mask = Instantiate(maskPrefab);
