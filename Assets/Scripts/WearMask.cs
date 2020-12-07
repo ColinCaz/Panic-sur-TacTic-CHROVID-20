@@ -12,6 +12,8 @@ public class WearMask : MonoBehaviour
     public Material blueMasked;
     public Material blueColor;
 
+    public ParticleSystem feedBack;
+
     public int time2live=5;
 
     private bool masked = false;
@@ -34,6 +36,13 @@ public class WearMask : MonoBehaviour
             {
                 transform.Find("Capsule").GetComponent<MeshRenderer>().material = greenMasked;
                 masked = true;
+            }
+
+            if (feedBack && masked)
+            {
+                ParticleSystem ps = Instantiate(feedBack);
+                ps.transform.position = transform.position;
+                ps.transform.parent = transform;
             }
         }
     }

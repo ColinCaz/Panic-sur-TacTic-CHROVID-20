@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 1734104963474334395}
   - component: {fileID: 2075689456537397940}
   m_Layer: 8
-  m_Name: PNJ Bleu
+  m_Name: PNJ Vert
   m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -165,6 +165,8 @@ MonoBehaviour:
   blue: {fileID: 2100000, guid: 0678a9c0a1e3e0449b48efcd7e901b20, type: 2}
   blueMasked: {fileID: 2100000, guid: e50ca889abec2354e8db9b0d20c335ba, type: 2}
   blueColor: {fileID: 2100000, guid: 5471975a9badab04fb2a8454b9144012, type: 2}
+  feedBack: {fileID: 2745002516068058691, guid: 4500a7da25287084b96e9a504127ae20,
+    type: 3}
   time2live: 5
 --- !u!114 &1659748203671040901
 MonoBehaviour:
@@ -217,7 +219,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f7e8eaa30ed67cd428b6cb0b98fde046, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
