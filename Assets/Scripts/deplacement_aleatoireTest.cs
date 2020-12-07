@@ -8,14 +8,15 @@ public class deplacement_aleatoireTest : MonoBehaviour
     public float movementSpeed = 0.5f;
     public float rotationSpeed = 3;
 
-    float proxi_noeud = 2;
+    float proxi_noeud = 10;
     float proxi_pnj = 2.5f;
     float repousse_pnj = -1f;
 
     GameObject[] noeud_routage;
     public GameObject[] liste_PNJ;
-    GameObject noeud_routage_choix;
-    GameObject noeud_routage_etape;
+    public List<GameObject> liste_PNJ_bis;
+    public GameObject noeud_routage_choix;
+    public GameObject noeud_routage_etape;
 
     public Vector3 movement;
 
@@ -24,7 +25,7 @@ public class deplacement_aleatoireTest : MonoBehaviour
     {
         //rb = GetComponent<Rigidbody>();
         noeud_routage = GameObject.FindGameObjectsWithTag("noeud_routage");
-        liste_PNJ = GameObject.FindGameObjectsWithTag("PNJ");
+        liste_PNJ = GameObject.FindGameObjectsWithTag("Character");
 
         noeud_routage_choix = noeud_routage[0];
         Vector3 vec_prov = new Vector3(noeud_routage[0].transform.position.x - transform.position.x, 0.0f, noeud_routage[0].transform.position.z - transform.position.z);
@@ -50,7 +51,7 @@ public class deplacement_aleatoireTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-           
+
         //transform.Rotate(new Vector3(0.0f, 0.0f, 0.0f) * rotationSpeed);
     }
 
@@ -76,21 +77,23 @@ public class deplacement_aleatoireTest : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < liste_PNJ.Length; i++)
+
+        for (int i = 0; i < liste_PNJ_bis.Count/*liste_PNJ.Length*/; i++)
         {
-            if (Mathf.Abs(transform.position.x - liste_PNJ[i].transform.position.x) < proxi_pnj && Mathf.Abs(transform.position.z - liste_PNJ[i].transform.position.z) < proxi_pnj)
+            if (Mathf.Abs(transform.position.x - liste_PNJ_bis[i].transform.position.x) < proxi_pnj && Mathf.Abs(transform.position.z - liste_PNJ_bis[i].transform.position.z) < proxi_pnj)
             {
-                Vector3 vec_prov = new Vector3(liste_PNJ[i].transform.position.x - transform.position.x, 0.0f, liste_PNJ[i].transform.position.z - transform.position.z);
-                float vec_prov_norme = Mathf.Sqrt(vec_prov.x * vec_prov.x + vec_prov.y * vec_prov.y  + vec_prov.z * vec_prov.z);
+                Vector3 vec_prov = new Vector3(liste_PNJ_bis[i].transform.position.x - transform.position.x, 0.0f, liste_PNJ_bis[i].transform.position.z - transform.position.z);
+                float vec_prov_norme = Mathf.Sqrt(vec_prov.x * vec_prov.x + vec_prov.y * vec_prov.y + vec_prov.z * vec_prov.z);
                 //vec_prov = vec_prov * repousse_pnj;
                 vec_prov = vec_prov.normalized;
                 vec_prov = vec_prov * repousse_pnj * (proxi_pnj - vec_prov_norme);
-                movement = new Vector3(movement.x + vec_prov.x, movement.y, movement.z + vec_prov.z) ;
+                movement = new Vector3(movement.x + vec_prov.x, movement.y, movement.z + vec_prov.z);
                 movement = movement.normalized;
             }
         }
 
         movement = new Vector3(movement.x * movementSpeed, movement.y * movementSpeed, movement.z * movementSpeed);
+
         transform.Translate(movement);
     }
 }
