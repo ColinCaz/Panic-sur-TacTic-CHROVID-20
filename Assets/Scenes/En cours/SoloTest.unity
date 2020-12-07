@@ -163,7 +163,7 @@ PrefabInstance:
     - target: {fileID: 1711441792888349319, guid: b0aeeeebfa0f204489b957e7e28b20c4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 610.2
+      value: 486.9
       objectReference: {fileID: 0}
     - target: {fileID: 1711441792888349319, guid: b0aeeeebfa0f204489b957e7e28b20c4,
         type: 3}
@@ -173,7 +173,7 @@ PrefabInstance:
     - target: {fileID: 1711441792888349319, guid: b0aeeeebfa0f204489b957e7e28b20c4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 512.8
+      value: 322.5
       objectReference: {fileID: 0}
     - target: {fileID: 1711441792888349319, guid: b0aeeeebfa0f204489b957e7e28b20c4,
         type: 3}
@@ -231,14 +231,13 @@ PrefabInstance:
       propertyPath: maskSpeed
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 6320215866954867760, guid: b0aeeeebfa0f204489b957e7e28b20c4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0aeeeebfa0f204489b957e7e28b20c4, type: 3}
---- !u!1 &8530128 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6291467378032810630, guid: b0aeeeebfa0f204489b957e7e28b20c4,
-    type: 3}
-  m_PrefabInstance: {fileID: 8530127}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8530130 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6320215866954867760, guid: b0aeeeebfa0f204489b957e7e28b20c4,
@@ -7322,6 +7321,12 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 8b6a44f34a65c42dcb0c87b7c9fc089a, type: 3}
+--- !u!4 &493134268 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1711441793358706182, guid: b0aeeeebfa0f204489b957e7e28b20c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 8530127}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &495442398
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27231,7 +27236,7 @@ MonoBehaviour:
   Map: {fileID: 1200769618}
   gun: {fileID: 8530130}
   grenade: {fileID: 1040787023}
-  tourelle: {fileID: 8530128}
+  tourelle: {fileID: 8230171930703352244}
   borderGun: {fileID: 883898030}
   backgroundGun: {fileID: 495967764}
   munGun: {fileID: 940546169}
@@ -30049,3 +30054,78 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &42335388864971064
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 493134268}
+    m_Modifications:
+    - target: {fileID: 8259907431686524076, guid: 5f030ed87b4599c4a9ac579b46360939,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259907431686524076, guid: 5f030ed87b4599c4a9ac579b46360939,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.6412635
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259907431686524076, guid: 5f030ed87b4599c4a9ac579b46360939,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259907431686524076, guid: 5f030ed87b4599c4a9ac579b46360939,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259907431686524076, guid: 5f030ed87b4599c4a9ac579b46360939,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.76338065
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259907431686524076, guid: 5f030ed87b4599c4a9ac579b46360939,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259907431686524076, guid: 5f030ed87b4599c4a9ac579b46360939,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6459489
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259907431686524076, guid: 5f030ed87b4599c4a9ac579b46360939,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259907431686524076, guid: 5f030ed87b4599c4a9ac579b46360939,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259907431686524076, guid: 5f030ed87b4599c4a9ac579b46360939,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 260.474
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259907431686524076, guid: 5f030ed87b4599c4a9ac579b46360939,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8259907431686951052, guid: 5f030ed87b4599c4a9ac579b46360939,
+        type: 3}
+      propertyPath: m_Name
+      value: TourelleSpawner
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5f030ed87b4599c4a9ac579b46360939, type: 3}
+--- !u!1 &8230171930703352244 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8259907431686951052, guid: 5f030ed87b4599c4a9ac579b46360939,
+    type: 3}
+  m_PrefabInstance: {fileID: 42335388864971064}
+  m_PrefabAsset: {fileID: 0}
