@@ -5,27 +5,33 @@ using UnityEngine;
 public class Grenade : MonoBehaviour
 {
     public float delay = 3f;
-    float countdown;
-    bool hasExploded = false;
     public GameObject explosionEffect;
-    public float radius=5f;
-    public float force= 700f;
+    public float radius = 5f;
+    public float force = 700f;
+
     // Start is called before the first frame update
     void Start()
     {
-        countdown = delay;
-        
+        StartCoroutine(ExplodeAfter(delay));
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator ExplodeAfter(float delay)
     {
-        countdown -= Time.deltaTime;
-        if(countdown <= 0f  && !hasExploded){
+        yield return new WaitForSeconds(delay);
+        if (transform.position.y < 1)
+        {
             Explode();
-            hasExploded=true;
+        }
+        else
+        {
+            while (transform.position.y > 1)
+            {
+                yield return new WaitForSeconds(0.1f);
+            }
+            Explode();
         }
     }
+
     void Explode(){
 
         Instantiate(explosionEffect, transform.position, transform.rotation);
@@ -49,10 +55,6 @@ public class Grenade : MonoBehaviour
                 rb.AddExplosionForce(force, transform.position, radius);
             }
         }
-
-        Destroy(gameObject);        
-
-       
-
+        Destroy(gameObject);
     }
 }

@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/En cours/Coop.unity
     guid: e5dd84ea55158da4fa12fa18a4f9d6e4
   - enabled: 1
-    path: Assets/Scenes/En cours/Skins.unity
+    path: Assets/Scenes/Fini/Skins.unity
     guid: 1ec5187af084d3e44b61abd27f706349
   - enabled: 1
     path: Assets/Scenes/Fini/Options.unity
