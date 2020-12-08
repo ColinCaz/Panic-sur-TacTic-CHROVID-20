@@ -83,6 +83,7 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 Instantiate(stock, hit.point, Quaternion.identity);
+                transform.position = hit.point + new Vector3(0, 0, 10);
             }
             stockPositionnement = false;
             Cursor.visible = false;

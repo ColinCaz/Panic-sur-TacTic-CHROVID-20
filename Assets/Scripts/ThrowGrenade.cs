@@ -11,6 +11,9 @@ public class ThrowGrenade : MonoBehaviour
     public GameObject player;
     public GameObject grenadeEnMain;
 
+    public AudioClip shotSound;
+    public AudioSource source;
+
     bool throwing = false;
     int etape = 1;
 
@@ -105,6 +108,8 @@ public class ThrowGrenade : MonoBehaviour
 
     private void Throw()
     {
+        source.volume = (float)PlayerPrefs.GetInt("VolumeSons") / 100;
+        source.PlayOneShot(shotSound);
         GameObject grenade = Instantiate(grenadePrefab);
         grenade.transform.position = grenadeSpawn.position;
         grenade.GetComponent<Rigidbody>().AddRelativeForce(grenadeSpawn.forward * grenadeSpeed, ForceMode.Impulse);

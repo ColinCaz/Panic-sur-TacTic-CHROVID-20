@@ -10,6 +10,7 @@ public class GunBehaviour : MonoBehaviour
     public float maskSpeed = 30;
     public float lifeTime = 3;
     public float timeBetweenFire = 0.5f;
+
     public AudioClip shotSound;
     public AudioSource source;
 

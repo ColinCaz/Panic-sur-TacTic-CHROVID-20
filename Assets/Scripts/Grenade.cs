@@ -9,6 +9,9 @@ public class Grenade : MonoBehaviour
     public float radius = 5f;
     public float force = 700f;
 
+    public AudioClip shotSound;
+    public AudioSource source;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,26 +35,31 @@ public class Grenade : MonoBehaviour
         }
     }
 
-    void Explode(){
-
+    void Explode()
+    {
+        source.volume = (float)PlayerPrefs.GetInt("VolumeSons") / 100;
+        source.PlayOneShot(shotSound);
         Instantiate(explosionEffect, transform.position, transform.rotation);
-        Collider[] colliders=Physics.OverlapSphere(transform.position, radius);
-        foreach (Collider nearbyObject in colliders){
-            if (nearbyObject.name.Contains("PNJ")){
+        Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
+        foreach (Collider nearbyObject in colliders)
+        {
+            if (nearbyObject.name.Contains("PNJ"))
+            {
                 GameObject capsule = nearbyObject.transform.GetChild(0).gameObject;
                 GameObject brasdroit = capsule.transform.GetChild(0).gameObject;
                 GameObject brasgauche = capsule.transform.GetChild(1).gameObject;
-                List<GameObject> gameObjects = new List<GameObject>{capsule, brasdroit, brasgauche};
-                
+                List<GameObject> gameObjects = new List<GameObject> { capsule, brasdroit, brasgauche };
+
                 foreach (GameObject item in gameObjects)
                 {
                     Renderer rend = item.GetComponent<Renderer>();
-                    rend.material.SetColor("_Color",Color.red);
+                    rend.material.SetColor("_Color", Color.red);
                 }
-             
+
             }
             Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
-            if (rb != null){
+            if (rb != null)
+            {
                 rb.AddExplosionForce(force, transform.position, radius);
             }
         }

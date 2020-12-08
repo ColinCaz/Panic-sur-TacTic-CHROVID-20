@@ -21,10 +21,8 @@ public class TurretBehaviour : MonoBehaviour
 
     public float rotationSpeed = 3.0f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
+    public AudioClip shotSound;
+    public AudioSource source;
 
     // Update is called once per frame
     void Update()
@@ -37,8 +35,8 @@ public class TurretBehaviour : MonoBehaviour
             Collider[] insideColliders = Physics.OverlapSphere(transform.position, range);
             foreach (Collider col in insideColliders)
             {
-                // TODO: Check if the character has a mask
-                if (col.transform.gameObject.tag == tagName)
+                WearMask script = col.transform.gameObject.GetComponent<WearMask>();
+                if ((script && !script.IsMasked()))
                 {
                     target = col;
                     break;
@@ -72,6 +70,9 @@ public class TurretBehaviour : MonoBehaviour
 
     private void Fire()
     {
+        source.volume = (float)PlayerPrefs.GetInt("VolumeSons") / 100;
+        source.PlayOneShot(shotSound);
+
         GameObject mask = Instantiate(maskPrefab);
 
         mask.transform.position = maskSpawn.position;
@@ -85,7 +86,6 @@ public class TurretBehaviour : MonoBehaviour
     private IEnumerator DestroyMaskAfterTime(GameObject mask, float delay)
     {
         yield return new WaitForSeconds(delay);
-
         Destroy(mask);
     }
 }
