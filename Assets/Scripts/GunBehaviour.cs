@@ -38,6 +38,7 @@ public class GunBehaviour : MonoBehaviour
         source.volume = (float)PlayerPrefs.GetInt("VolumeSons") / 100;
         source.PlayOneShot(shotSound);
         PlayerPrefs.SetInt("MunGun", PlayerPrefs.GetInt("MunGun", 0) - 1);
+        PlayerPrefs.SetInt("Masques tirés", PlayerPrefs.GetInt("Masques tirés", 0) + 1);
 
         GameObject mask = Instantiate(maskPrefab);
         Physics.IgnoreCollision(mask.GetComponent<Collider>(), maskSpawn.parent.GetComponent<Collider>());

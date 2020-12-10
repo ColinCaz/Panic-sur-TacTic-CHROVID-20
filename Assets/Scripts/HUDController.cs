@@ -30,20 +30,34 @@ public class HUDController : MonoBehaviour
     public Text taux;
 
     public GameObject perdu;
+    public Text statPerdu;
     public GameObject gagné;
+    public Text statGagné;
 
     private bool use1 = true;
     private bool use2 = false;
     private bool use3 = false;
     private bool changes = false;
 
+    private float time;
+
     public void Contamination()
     {
         taux.text = contamination.value.ToString() + "%";
     }
 
+    void Start()
+    {
+        PlayerPrefs.SetInt("Masques tirés", 0);
+        PlayerPrefs.SetInt("Grenades lancées", 0);
+        PlayerPrefs.SetInt("Tourelles déployées", 0);
+        PlayerPrefs.SetInt("Fragments de virus récoltés", Random.Range(1, 100));
+        this.time = 0f;
+    }
+
     void Update()
     {
+        this.time += Time.deltaTime;
         if (use1)
         {
             if (Input.mouseScrollDelta.y < 0 && Time.timeScale != 0)
@@ -173,15 +187,29 @@ public class HUDController : MonoBehaviour
         munGun.text = PlayerPrefs.GetInt("MunGun", 0).ToString();
         munGrenade.text = PlayerPrefs.GetInt("MunGrenade", 0).ToString();
         munTourelle.text = PlayerPrefs.GetInt("MunTourelle", 0).ToString();
-        if (Input.GetKeyDown("+") || Input.GetKeyDown("[+]"))
+        if ((Input.GetKeyDown("+") || Input.GetKeyDown("[+]")) && Time.timeScale != 0)
         {
             Time.timeScale = 0;
+            this.statGagné.text = "Masques tirés : " + PlayerPrefs.GetInt("Masques tirés", 0) + System.Environment.NewLine +
+            "Grenades lancées : " + PlayerPrefs.GetInt("Grenades lancées", 0) + System.Environment.NewLine +
+            "Tourelles déployées : " + PlayerPrefs.GetInt("Tourelles déployées", 0) + System.Environment.NewLine +
+            "Villes protégées : 1" + System.Environment.NewLine +
+            "Durée de la partie : " + (int)(this.time / 60) + ":" + ((int)(this.time % 60) < 10 ? "0" + (int)(this.time % 60) : "" + (int)(this.time % 60)) + System.Environment.NewLine +
+            "Fragments de virus récoltés : " + PlayerPrefs.GetInt("Fragments de virus récoltés", 0);
+            PlayerPrefs.SetInt("FragVirus", PlayerPrefs.GetInt("FragVirus", 0) + PlayerPrefs.GetInt("Fragments de virus récoltés", 0));
             gagné.SetActive(true);
             Cursor.visible = true;
         }
-        if (Input.GetKeyDown("-") || Input.GetKeyDown("[-]"))
+        if ((Input.GetKeyDown("-") || Input.GetKeyDown("[-]")) && Time.timeScale != 0)
         {
             Time.timeScale = 0;
+            this.statPerdu.text = "Masques tirés : " + PlayerPrefs.GetInt("Masques tirés", 0) + System.Environment.NewLine +
+            "Grenades lancées : " + PlayerPrefs.GetInt("Grenades lancées", 0) + System.Environment.NewLine +
+            "Tourelles déployées : " + PlayerPrefs.GetInt("Tourelles déployées", 0) + System.Environment.NewLine +
+            "Villes protégées : 0" + System.Environment.NewLine +
+            "Durée de la partie : " + (int)(this.time / 60) + ":" + ((int)(this.time % 60) < 10 ? "0" + (int)(this.time % 60) : "" + (int)(this.time % 60)) + System.Environment.NewLine +
+            "Fragments de virus récoltés : " + PlayerPrefs.GetInt("Fragments de virus récoltés", 0);
+            PlayerPrefs.SetInt("FragVirus", PlayerPrefs.GetInt("FragVirus", 0) + PlayerPrefs.GetInt("Fragments de virus récoltés", 0));
             perdu.SetActive(true);
             Cursor.visible = true;
         }

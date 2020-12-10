@@ -73,6 +73,7 @@ public class ThrowGrenade : MonoBehaviour
                 {
                     etape++;
                     PlayerPrefs.SetInt("MunGrenade", PlayerPrefs.GetInt("MunGrenade", 0) - 1);
+                    PlayerPrefs.SetInt("Grenades lancées", PlayerPrefs.GetInt("Grenades lancées", 0) + 1);
                     Throw();
                 }
             }

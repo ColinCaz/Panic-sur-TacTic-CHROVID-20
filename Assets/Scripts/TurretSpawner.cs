@@ -35,6 +35,7 @@ public class TurretSpawner : MonoBehaviour
         {
             once = false;
             PlayerPrefs.SetInt("MunTourelle", PlayerPrefs.GetInt("MunTourelle", 0) - 1);
+            PlayerPrefs.SetInt("Tourelles déployées", PlayerPrefs.GetInt("Tourelles déployées", 0) + 1);
             PutTurret();
         }
     }

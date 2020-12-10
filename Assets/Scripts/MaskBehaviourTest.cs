@@ -6,7 +6,6 @@ public class MaskBehaviourTest : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("hit " + other.name);
         Destroy(gameObject);
     }
 
