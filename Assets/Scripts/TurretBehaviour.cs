@@ -70,7 +70,7 @@ public class TurretBehaviour : MonoBehaviour
 
     private void Fire()
     {
-        source.volume = (float)PlayerPrefs.GetInt("VolumeSons") / 100;
+        source.volume = (float)PlayerPrefs.GetInt("VolumeSons") / 200;
         source.PlayOneShot(shotSound);
 
         GameObject mask = Instantiate(maskPrefab);

@@ -6,7 +6,10 @@ public class MaskBehaviour : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        print("hit " + other.name);
-        Destroy(gameObject);
+        if (other.name.Substring(0, 7) != "Trigger")
+        {
+            //print("hit " + other.name);
+            Destroy(gameObject);
+        }
     }
 }

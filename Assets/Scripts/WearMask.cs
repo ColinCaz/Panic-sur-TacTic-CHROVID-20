@@ -17,10 +17,11 @@ public class WearMask : MonoBehaviour
     public int time2live=5;
 
     private bool masked = false;
+    private bool wearingMask = false;
 
     public bool IsMasked()
     {
-        return masked;
+        return wearingMask;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -31,14 +32,16 @@ public class WearMask : MonoBehaviour
             {
                 transform.Find("Capsule").GetComponent<MeshRenderer>().material = blueMasked;
                 masked = true;
+                wearingMask = true;
             }
             if (transform.Find("Capsule").GetComponent<MeshRenderer>().material.name == "Green Material (Instance)")
             {
                 transform.Find("Capsule").GetComponent<MeshRenderer>().material = greenMasked;
                 masked = true;
+                wearingMask = true;
             }
 
-            if (feedBack && masked)
+            if (feedBack && wearingMask)
             {
                 ParticleSystem ps = Instantiate(feedBack);
                 ps.transform.position = transform.position;
@@ -59,6 +62,7 @@ public class WearMask : MonoBehaviour
     {
         masked = false;
         yield return new WaitForSeconds(time2live);
+        wearingMask = false;
         if (transform.Find("Capsule").GetComponent<MeshRenderer>().material.name == "Blue masked Material (Instance)")
         {
             transform.Find("Capsule").GetComponent<MeshRenderer>().material = blue;

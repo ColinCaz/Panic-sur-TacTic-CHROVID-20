@@ -7,6 +7,8 @@ public class GunBehaviour : MonoBehaviour
     public GameObject maskPrefab;
     public Transform maskSpawn;
 
+    public GameObject player;
+
     public float maskSpeed = 30;
     public float lifeTime = 3;
     public float timeBetweenFire = 0.5f;
@@ -14,7 +16,17 @@ public class GunBehaviour : MonoBehaviour
     public AudioClip shotSound;
     public AudioSource source;
 
-    private bool firing = false;
+    private bool firing;
+
+    void Start()
+    {
+        firing = false;
+    }
+
+    public bool isFiring()
+    {
+        return firing;
+    }
 
     // Update is called once per frame
     void Update()
@@ -43,8 +55,8 @@ public class GunBehaviour : MonoBehaviour
         GameObject mask = Instantiate(maskPrefab);
         Physics.IgnoreCollision(mask.GetComponent<Collider>(), maskSpawn.parent.GetComponent<Collider>());
         mask.transform.position = maskSpawn.position;
-        //Vector3 rotation = mask.transform.rotation.eulerAngles;
-        //mask.transform.rotation = Quaternion.Euler(rotation.x, transform.eulerAngles.y, rotation.z);
+        Vector3 rotation = mask.transform.rotation.eulerAngles;
+        mask.transform.rotation = Quaternion.Euler(rotation.x, transform.eulerAngles.y, rotation.z);
         mask.GetComponent<Rigidbody>().AddForce(maskSpawn.forward * maskSpeed, ForceMode.Impulse);
 
         StartCoroutine(DestroyMaskAfterTime(mask, lifeTime));

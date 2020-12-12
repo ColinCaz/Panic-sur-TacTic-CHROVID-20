@@ -80,15 +80,15 @@ public class PlayerController : MonoBehaviour
         {
             Ray ray = cityCamera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit) && hit.point.y < 0.5f && hit.point.x-12.5f > 450 && hit.point.z - 12.5f < 650 && hit.point.x-12.5f < 800 && hit.point.z - 12.5f > 200 && (hit.collider.gameObject.name.Substring(0, 4) == "Road" || hit.collider.gameObject.name.Substring(0, 7) == "Terrain" || hit.collider.gameObject.name.Substring(0, 5) == "Grass"))
             {
-                Instantiate(stock, hit.point, Quaternion.identity);
-                transform.position = hit.point + new Vector3(0, 0, 10);
+                Instantiate(stock, new Vector3(hit.point.x-12.5f, hit.point.y, hit.point.z-12.5f), Quaternion.identity);
+                transform.position = hit.point + new Vector3(-12.5f, 0, -7.5f);
+                stockPositionnement = false;
+                Cursor.visible = false;
+                positionnement.SetActive(false);
+                Time.timeScale = 1;
             }
-            stockPositionnement = false;
-            Cursor.visible = false;
-            positionnement.SetActive(false);
-            Time.timeScale = 1;
         }
 
         mapCamera.transform.position = new Vector3(transform.position.x, 10, transform.position.z);
