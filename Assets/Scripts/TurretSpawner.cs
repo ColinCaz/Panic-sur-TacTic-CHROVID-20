@@ -34,20 +34,28 @@ public class TurretSpawner : MonoBehaviour
         if (throwing && once)
         {
             once = false;
-            PlayerPrefs.SetInt("MunTourelle", PlayerPrefs.GetInt("MunTourelle", 0) - 1);
-            PlayerPrefs.SetInt("Tourelles déployées", PlayerPrefs.GetInt("Tourelles déployées", 0) + 1);
             PutTurret();
         }
     }
 
     private void PutTurret()
     {
-        source.volume = (float)PlayerPrefs.GetInt("VolumeSons") / 100;
-        source.PlayOneShot(shotSound);
-        GameObject newTurret = Instantiate(turret);
-        newTurret.transform.position = spawner.position;
-        tourelleEnMain.SetActive(false);
-        StartCoroutine(Stop());
+        RaycastHit hit;
+        if (Physics.Raycast(spawner.position, Vector3.down, out hit) && hit.collider.gameObject.name.Length >= 7 &&
+            (hit.collider.gameObject.name.Substring(0, 4) == "Road" || hit.collider.gameObject.name.Substring(0, 7) == "Terrain" || hit.collider.gameObject.name.Substring(0, 5) == "Grass"))
+        {
+            source.volume = (float)PlayerPrefs.GetInt("VolumeSons") / 100;
+            source.PlayOneShot(shotSound);
+            PlayerPrefs.SetInt("MunTourelle", PlayerPrefs.GetInt("MunTourelle", 0) - 1);
+            PlayerPrefs.SetInt("Tourelles déployées", PlayerPrefs.GetInt("Tourelles déployées", 0) + 1);
+            Instantiate(turret, new Vector3(hit.point.x, hit.point.y, hit.point.z), spawner.rotation);
+            tourelleEnMain.SetActive(false);
+            StartCoroutine(Stop());
+        }
+        else
+        {
+            throwing = false;
+        }
     }
 
     IEnumerator Stop()

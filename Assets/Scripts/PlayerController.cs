@@ -32,9 +32,9 @@ public class PlayerController : MonoBehaviour
         sourceMusiques.volume = (float)PlayerPrefs.GetInt("VolumeMusiques") / 400;
         rb = GetComponent<Rigidbody>();
         Time.timeScale = 0;
-        PlayerPrefs.SetInt("MunGun", 0);
-        PlayerPrefs.SetInt("MunGrenade", 0);
-        PlayerPrefs.SetInt("MunTourelle", 0);
+        PlayerPrefs.SetInt("MunGun", 100);
+        PlayerPrefs.SetInt("MunGrenade", 25);
+        PlayerPrefs.SetInt("MunTourelle", 5);
     }
 
     void OnMove(InputValue movementValue)

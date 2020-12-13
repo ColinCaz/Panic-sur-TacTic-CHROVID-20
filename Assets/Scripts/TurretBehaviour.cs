@@ -54,10 +54,16 @@ public class TurretBehaviour : MonoBehaviour
                 return;
             }
             // Rotation
+            /*
             Vector3 targetDirection = target.transform.position - transform.position;
             float singleStep = rotationSpeed * Time.deltaTime;
             Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
-            transform.rotation = Quaternion.LookRotation(newDirection);
+            transform.rotation = Quaternion.LookRotation(new Vector3(transform.rotation.x, newDirection.y, transform.rotation.z));
+            */
+            Vector3 targetDirection = target.transform.position - transform.position;
+            targetDirection.y = 0;
+            Quaternion rotation = Quaternion.LookRotation(targetDirection);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
 
             // Fire
             if (timePassed > timeBetweenFire)
